@@ -1,0 +1,141 @@
+@import './global-variables.scss';
+@import './global-animes.scss';
+
+/**
+ * following stylesheet is writing for admin page
+ */
+
+/*
+main view style
+*/
+.main-view {
+  // position: inherit;
+  // display: block;
+  // box-sizing: border-box;
+  // background-color: #E3E5EA;
+  
+  // height should be restricted in the child component 
+  // height: calc(100vh - var(--app-bar-height) - 8px - 8px - 8px);
+  // max-height: calc(100vh - var(--app-bar-height) - 8px - 8px - 8px);
+  margin-top: 8px;
+  border-radius: 5px;
+  transition: margin-left .4s ease-in-out;
+}
+
+.whenSiderOpen {
+  margin-left: calc(var(--desktop-siderbar-width) + 40px + 8px);
+}
+
+/*
+sidebar style
+*/
+.scaling {
+  margin-left: calc(var(--desktop-siderbar-width) + 48px);
+}
+
+.sidebar {
+  position: fixed;
+  width: var(--desktop-siderbar-width);
+  height: calc(100vh - 56px);
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  top: 8px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  transition: transform .4s ease-in-out;
+}
+
+.sidebarClose {
+  transform: translateX(-150%);
+}
+
+.sidebar-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 10vh;
+}
+
+.sidebar-menu li {
+  margin-bottom: 10px;
+}
+
+.sidebar-menu li a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #555;
+}
+
+.sidebar-menu li .active {
+  background-color: aliceblue;
+  color: #000;
+}
+
+.sidebar-menu li .active:hover {
+  background-color: aliceblue;
+  cursor: default;
+}
+
+.sidebar-menu li a:hover {
+  background-color: #444;
+}
+
+.main-content {
+  margin-left: 200px;
+  padding: 20px;
+}
+
+/*
+admin manager page style
+*/
+.title-and-search-field {
+  // dont set height here, should set in child component
+  margin: 0;
+  background-color: #E3E5EA;
+  border-radius: 5px;
+
+  h3 {
+    margin: 0;
+    padding: 10px 10px;
+  }
+}
+
+.table-field {
+  // restricting height in child component instead here
+  margin-block: var(--standard-margin);
+
+  .buttons {
+    padding-bottom: var(--standard-margin);
+
+    >* {
+      margin-inline-end: 5px;
+    }
+  }
+}
+
+.data-table-body {
+  // max-height: calc(100vh - 3 * var(--standard-margin) - var(--app-bar-height) - 30vh - 45px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.data-table-body::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .whenSiderOpen {
+    margin-left: calc(var(--mobile-siderbar-width) + 40px + 8px);
+  }
+
+  .sidebar {
+    width: var(--mobile-siderbar-width);
+  }
+
+  .scaling {
+    margin-left: calc(var(--mobile-siderbar-width) + 48px);
+  }
+}
